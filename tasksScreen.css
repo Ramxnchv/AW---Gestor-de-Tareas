@@ -1,0 +1,178 @@
+*{
+    margin:0;
+    padding:0;
+    font-family: 'Inconsolata', monospace;
+}
+
+body{
+    background-image: url(resources/notes.jpg);
+    background-color: rgb(191, 191, 255);
+    background-color:transparent;
+}
+
+.total{
+   
+}
+
+.cabecera{
+    background-color: rgb(245, 224, 196, 0.8);
+    display: flex;
+    align-items: center;
+}
+
+.logo{
+
+}
+
+#logo{
+    width:300px;
+    height:150px;
+}
+
+.userinfo{
+    margin-left: auto;
+    margin-right: 10px;
+    display: flex;
+}
+
+.userimg{
+
+}
+
+#userimg{
+    width: 100px;
+    height: 100px;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.useremail{
+    font-size: 20px;
+}
+
+.desconectar{
+    margin-top: 10px;
+}
+
+.desconectar:hover{
+    color:red;
+}
+
+.cuerpo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tareas{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+}
+
+.tarea{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color:  rgb(245, 224, 196);
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.titulotarea{
+    font-family: 'Grandstander', cursive;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.tag{
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    margin-left: 20px;
+    padding: 5px;
+}
+
+.botonfinalizada{
+    background-color:red;
+    color: white;
+    border:1px solid black;
+    border-radius: 5px;
+    margin-left: 100px;
+    padding: 5px;
+}
+
+.botonfinalizada:hover{
+    padding: 7.5px;
+}
+
+.tareafinalizada{
+    display: flex;
+    padding: 10px;
+    background-color:  rgb(185, 185, 185);
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.titulotareafinalizada{
+    text-decoration:line-through;
+    font-weight: bold;
+}
+
+.nuevatarea{
+    background-color: rgb(38, 86, 218);
+    color: white;
+    border:2px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 25px;
+    margin-top: 30px;
+}
+
+#text_nueva_tarea{
+    font-size: 25px;
+}
+
+#boton_nueva_tarea{
+    background-color: rgb(245, 224, 196);
+    font-size: 25px;
+    border-radius: 4px;
+    padding: 5px;
+    border: 2px solid black;
+}
+
+#boton_nueva_tarea:hover{
+    background-color: black;
+    color:white;
+    cursor: pointer;
+    padding: 7.5px;
+}
+
+.eliminartareas{
+    margin-top: 20px;
+    background-color: red;
+    border:1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 25px;
+    color: white;
+}
+
+.eliminartareas:hover{
+   padding:12.5px;
+}
+
+a{  
+    cursor: pointer;
+    text-decoration:none;
+}

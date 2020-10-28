@@ -3,11 +3,71 @@
    <head>
       <title>Gestor de tareas</title>
       <meta charset="utf-8"/>
-      <link rel="stylesheet" href="tasksScreen.css">
-      <link rel="stylesheet" href="tasksPrint.css">
-      <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-   </head>
+      <link rel="stylesheet" href="tasksScreen.css" media="screen">
+      <link rel="stylesheet" href="tasksPrint.css" media="print">
+      <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Grandstander&display=swap" rel="stylesheet">
+      <link rel="icon" type="img/png" href="resources/task-list-favicon.png">
+
+    </head>
    <body>
-        
+       <div class="total">
+            <div class="cabecera">
+                <div class="logo">
+                    <img id="logo" src="resources/titulo.png"></img>
+                </div>
+                <div class="userinfo">
+                    <div class="userimg">
+                        <img id="userimg" src="resources/avatar.png"></img>
+                    </div>
+                    <div class="info">
+                        <div class="useremail">
+                            usuario@gmail.com
+                        </div>
+                        <a href="">
+                            <div class="desconectar">
+                                Desconectar
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="cuerpo">
+                <div class="tareas">
+                    <div class="tarea">
+                        <div class="titulotarea">
+                            Preparar Práctica AW
+                        </div>
+                        <div class="tag">
+                            AW
+                        </div>
+                        <div class="tag">
+                            PRÁCTICA
+                        </div>
+                        <a href="">
+                            <div class="botonfinalizada">
+                                 MARCAR FINALIZADA
+                            </div>
+                        </a>
+                    </div>
+                    <div class="tareafinalizada">
+                        <div class="titulotareafinalizada">
+                            Mirar Fechas Congreso
+                        </div>
+                    </div>
+                </div>
+                <div class="nuevatarea">
+                    <form action="nueva_tarea" method="POST">
+                        Nueva Tarea: <input id="text_nueva_tarea" type="text" name="nombre_tarea" required>
+                        <button id="boton_nueva_tarea" type="submit">Añadir</button>
+                    </form>
+                </div>
+                <a href="">
+                    <div class="eliminartareas">
+                        Eliminar Tareas Completadas
+                    </div>
+                </a>
+            </div>
+       </div>   
    </body>
 </html>
