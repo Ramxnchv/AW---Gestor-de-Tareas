@@ -2,18 +2,28 @@
     margin:0;
     padding:0;
     font-family: 'Oxygen', sans-serif;
+    /* border: 1px solid red; */
 }
+
+/* html, body{
+    height:100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+} */
 
 body{
     background-image: url(resources/background.jpg);
+    background-size: cover;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-color: rgb(191, 191, 255);
-    background-color:transparent;
+    background-attachment: fixed;
 }
 
 .total{
-   
+    height:100%;
+    margin:0;
+    display: flex;
+    flex-direction: column;
 }
 
 .cab{
@@ -34,7 +44,7 @@ body{
     flex-direction: column;
     align-items: flex-end;
     background-color: rgba(175, 147, 114, 0.589);
-    height: 1000px;
+    height: 100%;
 }
 
 .logo{
@@ -45,31 +55,21 @@ body{
 .notes{
     color:white;
     margin-left: 30px;
-    font-size: 100px;
+    font-size: 90px;
     font-family: 'Abril Fatface', cursive;
     text-shadow: 7px 7px 6px rgb(63, 43, 19);
 }
 
-#logo{
-    width:300px;
-    height:150px;
-    margin-left: -20px;
-}
-
 #libreta{
     margin-left: 40px;
-    width:125px;
-    height:150px;
+    width:100px;
+    height: auto;
 }
 
 .userinfo{
     margin-left: auto;
     margin-right: 40px;
     display: flex;
-}
-
-.userimg{
-
 }
 
 #userimg{
@@ -99,21 +99,19 @@ body{
     color:rgba(233, 99, 10);
 }
 
-
-
 .tareas{
-    margin-top: 225px;
+    margin-top: 180px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 30px;
+    font-size: 25px;
     margin-right: 150px;
 }
 
 .tarea{
     display: flex;
     justify-content: flex-end;
-    padding: 10px;
+    padding: 5px;
     background-color:  rgb(223, 207, 187);
     margin: 10px;
     width: 900px;
@@ -127,6 +125,7 @@ body{
     font-weight: bold;
     padding: 5px;
     margin-right: auto;
+    margin-left: 5px;
 }
 
 .tag{
@@ -134,10 +133,17 @@ body{
     border-radius: 5px;
     background-color:rgba(80, 60, 33, 0.904);
     color: white;
-    margin-left: 10px;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
+    margin-right: 10px;
+    /* padding: 5px; */
+    font-size: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    align-self: center;
+}
+
+.a_botonfinalizada{
+    display: flex;
+    align-items: center;
 }
 
 .botonfinalizada{
@@ -146,32 +152,35 @@ body{
     font-weight: bold;
     color: white;
     border-radius: 5px;
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
+    /* margin-left: 10px; */
+    margin-right: 7px;
+    /* padding: 5px; */
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 20px;
 }
 
-.botonfinalizada:hover{
-    padding: 7.5px;
+.botonfinalizada:hover {
+    transform: scale(1.04);
+    transition-delay: .1s;
+    transition-duration: .2s;
 }
 
 .tareafinalizada{
     display: flex;
-    justify-content: center;
-    padding: 10px;
+    padding: 5px;
     background-color:  rgba(233, 99, 10, 0.61);
     margin: 10px;
     border-radius: 5px;
     width: 900px;
+    box-shadow: 3px 3px 10px #070707;
 }
 
 .titulotareafinalizada{
     text-decoration:line-through;
     font-family: 'Oxygen', sans-serif;
     font-weight: bold;
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 .nuevatarea{
@@ -182,13 +191,13 @@ body{
     font-size: 25px;
     margin-top: 60px;
     margin-right: 160px;
-    width: 900px;
+    width: 890px;
 }
 
 #text_nueva_tarea{
     padding-right: 300px;
     width: 55%;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 #boton_nueva_tarea{
@@ -214,15 +223,18 @@ body{
     font-size: 25px;
     color: white;
     margin-right: 160px;
-    width:900px;
+    width:890px;
 }
 
 .eliminartareas:hover{
-   padding:12.5px;
+    transform: scale(1.04);
+    transition-delay: .1s;
+    transition-duration: .2s;
 }
 
 .elim{
     margin-top:20px;
+    margin-bottom: 400px;
 }
 
 a{  
