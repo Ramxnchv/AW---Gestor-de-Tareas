@@ -1,0 +1,73 @@
+*{
+    margin:0;
+    padding:0;
+    /* border: 1px solid red; */
+}
+
+#body{
+    font-family: helvetica;
+}
+
+#libreta{
+    display: none;
+}
+
+.userinfo{
+    display: none;
+}
+
+.a_botonfinalizada{
+    display: none;
+}
+
+.nuevatarea{
+    display: none;
+}
+
+.elim{
+    display: none;
+}
+
+.notes{
+    font-size: 18px;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.cuerpo{
+    margin-left: 30px;
+}
+
+.tareas{
+    display: flex;
+    flex-direction: column;
+    align-items: initial;
+    font-size: 12px;
+}
+
+.tarea{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.caracter{
+    font-weight: normal;
+}
+
+.tareafinalizada{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    text-decoration: line-through;
+}
+
+.titulotareafinalizada{
+    text-decoration: line-through;
+}
+
+.tag{
+    margin-left: 10px;
+}

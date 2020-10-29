@@ -120,6 +120,10 @@ body{
     flex-shrink: 2;
 }
 
+.caracter{
+    display: none;
+}
+
 .titulotarea{
     font-family: 'Oxygen', sans-serif;
     font-weight: bold;
