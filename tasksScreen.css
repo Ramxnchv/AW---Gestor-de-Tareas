@@ -7,7 +7,7 @@
 
 body{
     margin-top: 180px;
-    background-image: url(resources/background.jpg);
+    background-image: url(resources/backgroundconcolor.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -100,6 +100,11 @@ body{
     align-items: center;
     font-size: 25px;
     margin-right: 150px;
+    width: 48.5%;
+    flex-basis: 300px;
+    flex-grow: 2;
+    flex-shrink: 2;
+    flex-wrap: nowrap;
 }
 
 
@@ -109,9 +114,10 @@ body{
     padding: 5px;
     background-color:  rgb(223, 207, 187);
     margin: 10px;
-    width: 900px;
+    width: 98%;
     border-radius: 5px;
     box-shadow: 3px 3px 10px #070707;
+    flex-wrap: nowrap;
 }
 
 .caracter{
@@ -137,6 +143,8 @@ body{
     padding-left: 5px;
     padding-right: 5px;
     align-self: center;
+    flex-basis:10px;
+    flex-shrink: 2;
 }
 
 .a_botonfinalizada{
@@ -170,7 +178,7 @@ body{
     background-color:  rgba(233, 99, 10, 0.61);
     margin: 10px;
     border-radius: 5px;
-    width: 900px;
+    width: 98%;
     /*box-shadow: 3px 3px 10px #070707;*/
 }
 
