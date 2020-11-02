@@ -1,3 +1,4 @@
+<!--Grupo 14 - Ramon Rosa Perez y Victor Velazquez Cabrera-->
 <!DOCTYPE html> 
 <html lang="es">
    <head>
@@ -36,22 +37,23 @@
                 </div>
             </div>
             <div class="cuerpo">
-                <div class="tareas">
-                    <div class="tarea">
-                        <div class="titulotarea">
-                            <strong class="caracter">&#8226&nbsp</strong> Preparar Práctica AW <strong class="caracter">:</strong>
-                        </div>
-                        <div class="tag">
-                            <strong class="caracter">(</strong> AW <strong class="caracter">)</strong>
-                        </div>
-                        <div class="tag">
-                            <strong class="caracter">(</strong> PRÁCTICA <strong class="caracter">)</strong>
-                        </div>
-                        <a class="a_botonfinalizada" href="">
-                            <div class="botonfinalizada">
-                                 MARCAR FINALIZADA
+                <div class="contenido">
+                     <div class="tareas">
+                         <div class="tarea">
+                             <div class="titulotarea">
+                                 <strong class="caracter">&#8226&nbsp</strong> Preparar Práctica AW <strong class="caracter">:</strong>
+                             </div>
+                            <div class="tag">
+                                <strong class="caracter">(</strong> AW <strong class="caracter">)</strong>
                             </div>
-                        </a>
+                            <div class="tag">
+                                <strong class="caracter">(</strong> PRÁCTICA <strong class="caracter">)</strong>
+                            </div>
+                            <a class="a_botonfinalizada" href="">
+                                 <div class="botonfinalizada">
+                                     MARCAR FINALIZADA
+                                 </div>
+                            </a>
                     </div>
                     <div class="tareafinalizada">
                         <div class="titulotareafinalizada">
@@ -86,17 +88,20 @@
                     </div>
                     
                 </div>
+                
                 <div class="nuevatarea">
-                    <form action="nueva_tarea" method="POST">
+                    <form action="nueva_tarea" method="POST" class="form_tarea">
                         Nueva Tarea: <input id="text_nueva_tarea" type="text" name="nombre_tarea" required>
                         <button id="boton_nueva_tarea" type="submit">Añadir</button>
                     </form>
                 </div>
+              
                 <a href="" class="elim">
                     <div class="eliminartareas">
                         Eliminar Tareas Completadas
                     </div>
                 </a>
+            </div>
             </div>
        </div>   
    </body>
