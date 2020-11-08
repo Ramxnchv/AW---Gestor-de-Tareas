@@ -24,10 +24,33 @@ function countDone(tasks){
     return (tasks.filter(aux => aux.done === true)).reduce((ac,aux) => ac + 1 , 0);
 }
 
-/*
 function createTask(texto){
-    return tasks.some(aux => );
+
+    var palabras = texto.split(" ").filter(aux => aux !== "");
+    var resultado = "{ text: '";
+    var tags = false;
+
+    for(let x of palabras){
+        if(!x.startsWith("@"))
+            resultado += x + " ";
+    }
+
+    resultado = resultado.substring(0, resultado.length - 1);
+    resultado += "', tags: [ "
+
+    for(let x of palabras){
+        if(x.startsWith("@")){
+            resultado += "'" + x.substring(1)+"', ";
+            tags = true;
+        }
+    }
+    
+    if(tags){
+        resultado = resultado.substring(0, resultado.length - 2);
+    }
+    
+    resultado += " ] }"
+    return resultado;
 }
-*/
 
 console.log(countDone(listaTareas));
