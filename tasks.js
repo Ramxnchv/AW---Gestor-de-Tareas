@@ -25,32 +25,23 @@ function countDone(tasks){
 }
 
 function createTask(texto){
-
     var palabras = texto.split(" ").filter(aux => aux !== "");
-    var resultado = "{ text: '";
-    var tags = false;
 
-    for(let x of palabras){
-        if(!x.startsWith("@"))
-            resultado += x + " ";
-    }
+    var resultado = new Object();
+    var text = palabras.filter(aux => !aux.startsWith("@"));
+    var tags = palabras.filter(aux => aux.startsWith("@"));
 
-    resultado = resultado.substring(0, resultado.length - 1);
-    resultado += "', tags: [ "
+    tags.forEach((v,i, a) => {
+            a[i] = a[i].substring(1);
+        });
 
-    for(let x of palabras){
-        if(x.startsWith("@")){
-            resultado += "'" + x.substring(1)+"', ";
-            tags = true;
-        }
-    }
-    
-    if(tags){
-        resultado = resultado.substring(0, resultado.length - 2);
-    }
-    
-    resultado += " ] }"
+    // for (let index = 0; index < tags.length; index++) {
+    //     tags[index] = tags[index].substring(1); 
+    // }
+
+    resultado.text = text.join(" ");
+    resultado.tags = tags;
     return resultado;
 }
 
-console.log(countDone(listaTareas));
+// console.log(countDone(listaTareas));
