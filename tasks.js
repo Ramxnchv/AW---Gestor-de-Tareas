@@ -27,21 +27,10 @@ function countDone(tasks){
 function createTask(texto){
     var palabras = texto.split(" ").filter(aux => aux !== "");
 
-    var resultado = new Object();
     var text = palabras.filter(aux => !aux.startsWith("@"));
-    var tags = palabras.filter(aux => aux.startsWith("@"));
+    var tags = palabras.filter(aux => aux.startsWith("@")).map(aux => aux.slice(1,aux.lenth));
 
-    tags.forEach((v,i, a) => {
-            a[i] = a[i].substring(1);
-        });
-
-    // for (let index = 0; index < tags.length; index++) {
-    //     tags[index] = tags[index].substring(1); 
-    // }
-
-    resultado.text = text.join(" ");
-    resultado.tags = tags;
-    return resultado;
+    return {text: text.join(" "), tags: tags};
 }
 
-// console.log(countDone(listaTareas));
+
