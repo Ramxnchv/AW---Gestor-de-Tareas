@@ -3,7 +3,7 @@
 const mysql = require("mysql");
 const config = require("./config");
 const DAOUsers = require("./DAOUsers");
-const DAOTasks = require("./DAOTasks");
+//const DAOTasks = require("./DAOTasks");
 
 // Crear el pool de conexiones
 const pool = mysql.createPool({
@@ -14,11 +14,13 @@ const pool = mysql.createPool({
 });
 
 let daoUser = new DAOUsers(pool);
-let daoTask = new DAOTasks(pool);
+// let daoTask = new DAOTasks(pool);
 
 // Definición de las funciones callback
 // Uso de los métodos de las clases DAOUsers y DAOTasks
-daoUser.isUserCorrect("usuario@ucm.es", "mipass", cb_isUserCorrect);
+daoUser.isUserCorrect("ejemplo@ucm.es", "1234", cb_isUserCorrect);
+daoUser.getUserImageName("ejemplo@ucm.es", cb_getUserImageName);
+
 
 function cb_isUserCorrect(err, result){
    if (err) {
@@ -28,4 +30,12 @@ function cb_isUserCorrect(err, result){
    } else {
        console.log("Usuario y/o contraseña incorrectos");
    }
+}
+
+function cb_getUserImageName(err, result){
+    if (err) {
+        console.log(err.message);
+    } else {
+        console.log(result);
+    }
 }
