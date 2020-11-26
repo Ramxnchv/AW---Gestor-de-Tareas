@@ -50,7 +50,7 @@ class DAOUsers {
                                 callback(new Error("El usuario no existe")); //no tiene imagen de usuario
                             }
                             else {
-                                callback(null, rows);
+                                callback(null, rows[0].img);
                             }
                         }
                     });
