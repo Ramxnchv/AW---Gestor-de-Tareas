@@ -3,7 +3,7 @@
 const mysql = require("mysql");
 const config = require("./config");
 const DAOUsers = require("./DAOUsers");
-//const DAOTasks = require("./DAOTasks");
+const DAOTasks = require("./DAOTasks");
 
 // Crear el pool de conexiones
 const pool = mysql.createPool({
@@ -14,13 +14,14 @@ const pool = mysql.createPool({
 });
 
 let daoUser = new DAOUsers(pool);
-// let daoTask = new DAOTasks(pool);
+let daoTask = new DAOTasks(pool);
 
 // Definición de las funciones callback
 // Uso de los métodos de las clases DAOUsers y DAOTasks
 daoUser.isUserCorrect("ejemplo@ucm.es", "1234", cb_isUserCorrect);
 daoUser.getUserImageName("ejemplo@ucm.es", cb_getUserImageName);
-
+daoTask.getAllTasks("ejemplo@ucm.es",cb_getAllTasks);
+daoTask.insertTask("ejemplo@ucm.es", ["ejemplo insert",0,["SQL","Insercion"]],cb_insertTask);
 
 function cb_isUserCorrect(err, result){
    if (err) {
@@ -37,5 +38,23 @@ function cb_getUserImageName(err, result){
         console.log(err.message);
     } else {
         console.log(result);
+    }
+}
+
+function cb_getAllTasks(err, result){
+    if (err) {
+        console.log(err.message);
+    } else {
+        console.log(result);
+    }
+}
+
+function cb_insertTask(err, result){
+    if (err) {
+        console.log(err.message);
+    } else if (result) {
+        console.log("Tarea insertada con exito");
+    } else {
+        console.log("Tarea NO insertada con exito");
     }
 }

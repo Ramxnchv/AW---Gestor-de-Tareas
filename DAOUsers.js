@@ -2,7 +2,9 @@
 
 class DAOUsers {
 
-  constructor(pool) {  this.pool = pool;  }
+  constructor(pool) {
+      this.pool = pool;
+    }
 
   isUserCorrect(email, password, callback) {
 
