@@ -22,6 +22,8 @@ daoUser.isUserCorrect("ejemplo@ucm.es", "1234", cb_isUserCorrect);
 daoUser.getUserImageName("ejemplo@ucm.es", cb_getUserImageName);
 daoTask.getAllTasks("ejemplo@ucm.es",cb_getAllTasks);
 daoTask.insertTask("ejemplo@ucm.es", ["ejemplo insert",0,["SQL","Insercion"]],cb_insertTask);
+daoTask.markTaskDone(2,cb_maskTaskDone);
+daoTask.deleteCompleted("ejemplo@ucm.es",cb_deleteCompleted)
 
 function cb_isUserCorrect(err, result){
    if (err) {
@@ -49,12 +51,27 @@ function cb_getAllTasks(err, result){
     }
 }
 
-function cb_insertTask(err, result){
+function cb_insertTask(err){
     if (err) {
         console.log(err.message);
-    } else if (result) {
-        console.log("Tarea insertada con exito");
+    
     } else {
-        console.log("Tarea NO insertada con exito");
+        console.log("Tarea insertada con exito");
+    }
+}
+
+function cb_maskTaskDone(err){
+    if (err) {
+        console.log(err.message);
+    } else {
+        console.log("Tareas marcadas como finalizadas con exito");
+    }
+}
+
+function cb_deleteCompleted(err){
+    if (err) {
+        console.log(err.message);
+    } else {
+        console.log("Tareas finalizadas eliminadas con exito");
     }
 }
