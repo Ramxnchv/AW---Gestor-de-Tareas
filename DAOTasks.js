@@ -28,7 +28,7 @@ class DAOTasks {
                 }
                 else {
                     let task={};
-                    let hash = {};
+                    let hash = {}; //para eliminar repetidos
                     let tasks = rows.map(t => task = {id: t.id, text: t.text, done: t.done, tags: rows.filter(tg => tg.id === t.id).map(a => a.tag)});
                     tasks = tasks.filter(t => hash[t.id] ? false : hash[t.id] = true);
                     callback(null, tasks);
