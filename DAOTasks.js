@@ -1,6 +1,7 @@
 "use strict";
 
 const { result } = require("underscore");
+const { database } = require("./config");
 
 class DAOTasks {
  constructor(pool) {   
@@ -14,7 +15,7 @@ class DAOTasks {
             callback(new Error("Error de conexión a la base de datos"));
         }
         else {
-        connection.query("SELECT task.id, task.text, task.done, tag.tag FROM user JOIN task ON user.email = task.user JOIN tag ON task.id = tag.taskId  WHERE user.email = ?" ,
+        connection.query("SELECT task.id, task.text, task.done, tag.tag FROM user JOIN task ON user.email = task.user JOIN tag ON task.id = tag.taskId  WHERE user.email = ? " ,
         [email],
         function(err, rows) {
             connection.release(); // devolver al pool la conexión
@@ -26,7 +27,11 @@ class DAOTasks {
                     callback(null, false); //no está el usuario con el password proporcionado
                 }
                 else {
-                    callback(null, rows);
+                    let task={};
+                    let hash = {};
+                    let tasks = rows.map(t => task = {id: t.id, text: t.text, done: t.done, tags: rows.filter(tg => tg.id === t.id).map(a => a.tag)});
+                    tasks = tasks.filter(t => hash[t.id] ? false : hash[t.id] = true);
+                    callback(null, tasks);
                 }           
             }
         });
@@ -44,53 +49,37 @@ class DAOTasks {
         }
         else {
             connection.query("INSERT INTO task(task.user, task.text) VALUES (?,?)" ,
-            [email,task[0]],
+            [email,task.text],
             function(err,result) {
-                idtarea = result;
-                connection.release(); // devolver al pool la conexión
+                idtarea = result.insertId;
                 if (err) {
                     callback(new Error("Error de acceso a la base de datos"));
                 }
                 else {
-                     callback(null);       
+                    task.tags.forEach(t => {
+                        connection.query("INSERT INTO tag(tag.taskId, tag.tag) VALUES (?,?)" ,
+                        [idtarea,t],
+                        function(err,result) {
+                            idtarea = result;
+                            if (err) {
+                                callback(new Error("Error de acceso a la base de datos"));
+                            }
+                        });
+                     
+                    });  
+
+                    connection.release(); // devolver al pool la conexión
+                    callback(null);    
                 }
                 
             });
+            
         }
     }
 
     
     );
-    this.pool.getConnection(function(err, connection) {
-        
-        if (err) { 
-            callback(new Error("Error de conexión a la base de datos"));
-        }
-        else {
-            var valores=[];
-            for(var i = 0; i< task[2].length; ++i){
-                valores.push([3,task[2][i]]);
-            }
-    
-            connection.query("INSERT INTO tag (taskId, tag) VALUES ?" ,
-            [valores],
-            function(err,result) {
-                
-                connection.release(); // devolver al pool la conexión
-                if (err) {
-                    callback(new Error("Error de acceso a la base de datos"));
-                }
-                else {
-                    callback(null);         
-                }
-                
-            });
-    }
 }
-
-
-);
- }
  
 
 

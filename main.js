@@ -18,12 +18,12 @@ let daoTask = new DAOTasks(pool);
 
 // Definición de las funciones callback
 // Uso de los métodos de las clases DAOUsers y DAOTasks
-daoUser.isUserCorrect("ejemplo@ucm.es", "1234", cb_isUserCorrect);
-daoUser.getUserImageName("ejemplo@ucm.es", cb_getUserImageName);
+//daoUser.isUserCorrect("ejemplo@ucm.es", "1234", cb_isUserCorrect);
+//daoUser.getUserImageName("ejemplo@ucm.es", cb_getUserImageName);
 daoTask.getAllTasks("ejemplo@ucm.es",cb_getAllTasks);
-daoTask.insertTask("ejemplo@ucm.es", ["ejemplo insert",0,["SQL","Insercion"]],cb_insertTask);
-daoTask.markTaskDone(2,cb_maskTaskDone);
-daoTask.deleteCompleted("ejemplo@ucm.es",cb_deleteCompleted)
+daoTask.insertTask("ejemplo@ucm.es", {text: "ejemplo insert", done: 0, tags: ["SQL","Insercion"] },cb_insertTask);
+// daoTask.markTaskDone(2,cb_maskTaskDone);
+// daoTask.deleteCompleted("ejemplo@ucm.es",cb_deleteCompleted);
 
 function cb_isUserCorrect(err, result){
    if (err) {
