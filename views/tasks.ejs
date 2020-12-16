@@ -61,7 +61,7 @@
                                             <%= tag %> <strong class="caracter">)</strong>
                                         </div>
                                         <% }); %>
-                                            <a class="a_botonfinalizada" href="">
+                                            <a class="a_botonfinalizada" href="/finish/<%= task.id %>">
                                                 <div class="botonfinalizada">
                                                     MARCAR FINALIZADA
                                                 </div>
@@ -72,13 +72,13 @@
                 </div>
 
                 <div class="nuevatarea">
-                    <form action="nueva_tarea" method="POST" class="form_tarea">
+                    <form action="/addTask" method="POST" class="form_tarea">
                         Nueva Tarea: <input id="text_nueva_tarea" type="text" name="nombre_tarea" required>
                         <button id="boton_nueva_tarea" type="submit">Añadir</button>
                     </form>
                 </div>
 
-                <a href="" class="elim">
+                <a href="/deleteCompleted" class="elim">
                     <div class="eliminartareas">
                         Eliminar Tareas Completadas
                     </div>

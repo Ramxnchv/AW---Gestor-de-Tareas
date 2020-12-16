@@ -90,8 +90,8 @@ class DAOTasks {
             callback(new Error("Error de conexión a la base de datos"));
         }
         else {
-        connection.query("UPDATE task SET done = ? WHERE task.id = ?" ,
-        [true, idTask],
+        connection.query("UPDATE task SET done = 1 WHERE task.id = ?" ,
+        [idTask],
         function(err, rows) {
             connection.release(); // devolver al pool la conexión
             if (err) {
@@ -114,8 +114,8 @@ class DAOTasks {
             callback(new Error("Error de conexión a la base de datos"));
         }
         else {
-        connection.query("DELETE FROM task WHERE task.user = ? AND task.done = ?" ,
-        [email, true],
+        connection.query("DELETE FROM task WHERE task.user = ? AND task.done = 1" ,
+        [email],
         function(err, rows) {
             connection.release(); // devolver al pool la conexión
             if (err) {

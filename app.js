@@ -17,6 +17,8 @@ const pool = mysql.createPool(config.mysqlConfig);
 // Crear una instancia de DAOTasks
 const daoT = new DAOTasks(pool);
 
+const utilidades = new utils();
+
 const ficherosEstaticos = path.join(__dirname, "public");
 app.use(express.static(ficherosEstaticos));
 
@@ -32,6 +34,38 @@ app.get("/tasks", function(request, response) {
             console.log(err.message);
         } else {
             response.render("tasks", { tasks: taskList });
+        }
+    });
+});
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.post("/addTask", function(request, response) {
+    daoT.insertTask("usuario@ucm.es", utilidades.createTask(request.body.nombre_tarea) ,function(err){
+        if (err) {
+            console.log(err.message);
+        } else {
+            response.redirect("/tasks");
+        }
+    });
+});
+
+app.get("/finish/:taskId", function(request, response) {
+    daoT.markTaskDone(request.params.taskId,function(err){
+        if (err) {
+            console.log(err.message);
+        } else {
+            response.redirect("/tasks");
+        }
+    });
+});
+
+app.get("/deleteCompleted", function(request, response) {
+    daoT.deleteCompleted("usuario@ucm.es",function(err){
+        if (err) {
+            console.log(err.message);
+        } else {
+            response.redirect("/tasks");
         }
     });
 });
