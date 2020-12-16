@@ -1,0 +1,261 @@
+/* Grupo 14 - Ramon Rosa Perez y Victor Velazquez Cabrera */
+
+*{
+    margin:0;
+    padding:0;
+    font-family: 'Oxygen', sans-serif;
+}
+
+body{
+    margin-top: 180px;
+    background-image: url(../img/backgroundconcolor.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: auto;
+    min-width: 800px;
+}
+
+.total{
+    display: flex;
+    flex-direction: column;
+}
+
+.cab{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+.cabecera{
+    background-color: rgba(80, 60, 33, 0.918);
+    display: flex;
+    align-items: center;
+}
+
+.cuerpo{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    min-width: 900px;
+    /* background-color: rgba(175, 147, 114, 0.589); */
+    /* height: auto; */
+}
+
+.contenido{
+    display: flex;
+    flex-direction: column;
+    width: 890px;
+    min-width: 800px;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.notes{
+    color:white;
+    margin-left: 30px;
+    font-size: 90px;
+    font-family: 'Abril Fatface', cursive;
+    text-shadow: 7px 7px 6px rgb(63, 43, 19);
+}
+
+#libreta{
+    margin-left: 40px;
+    width:100px;
+    height: auto;
+}
+
+.userinfo{
+    margin-left: auto;
+    margin-right: 40px;
+    display: flex;
+}
+
+#userimg{
+    width: 100px;
+    height: 100px;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.useremail{
+    font-size: 20px;
+    color:white;
+}
+
+.desc{
+    margin-top: 10px;
+}
+.desconectar{
+    color:rgb(211, 201, 201);
+}
+
+.desconectar:hover{
+    color:rgba(233, 99, 10);
+}
+
+.tareas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+    width: 85%;
+}
+
+
+.tarea{
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+    background-color:  rgb(223, 207, 187);
+    width: 98%;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px #070707;
+    flex-wrap: nowrap;
+    margin:10px;
+}
+
+.caracter{
+    display: none;
+}
+
+.titulotarea{
+    font-family: 'Oxygen', sans-serif;
+    font-weight: bold;
+    padding: 5px;
+    margin-right: auto;
+    margin-left: 5px;
+}
+
+.tag{
+    font-family: 'Oxygen', sans-serif;
+    border-radius: 5px;
+    background-color:rgba(80, 60, 33, 0.904);
+    color: white;
+    margin-right: 10px;
+    /* padding: 5px; */
+    font-size: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    align-self: center;
+    flex-basis:10px;
+    flex-shrink: 2;
+}
+
+.a_botonfinalizada{
+    display: flex;
+    align-items: center;
+}
+
+.botonfinalizada{
+    background-color:rgba(233, 99, 10, 0.911);
+    font-family: 'Oxygen', sans-serif;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px;
+    /* margin-left: 10px; */
+    margin-right: 7px;
+    /* padding: 5px; */
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 20px;
+}
+
+.botonfinalizada:hover {
+    transform: scale(1.04);
+    transition-delay: .1s;
+    transition-duration: .2s;
+}
+
+.tareafinalizada{
+    display: flex;
+    padding: 5px;
+    background-color:  rgba(233, 99, 10, 0.61);
+    margin: 10px;
+    border-radius: 5px;
+    width: 98%;
+    /*box-shadow: 3px 3px 10px #070707;*/
+}
+
+.titulotareafinalizada{
+    text-decoration:line-through;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.nuevatarea{
+    display: flex;
+    background-color: rgba(80, 60, 33);
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 25px;
+    margin-top: 60px;
+    width: 82.5%;
+}
+
+#text_nueva_tarea{
+    margin-left:10px;
+    padding-right: 170px;
+    
+    width: 35%;
+    font-size: 20px;
+}
+
+#boton_nueva_tarea{
+    
+    background-color: rgb(223, 207, 187);
+    font-size: 20px;
+    border-radius: 4px;
+    padding: 5px;
+    margin-left: 30px;
+}
+
+#boton_nueva_tarea:hover{
+    background-color: black;
+    color:white;
+    cursor: pointer;
+    padding: 7.5px;
+}
+
+.form_tarea{
+    width: 100%;
+}
+
+.eliminartareas{
+    background-color: rgba(233, 99, 10, 0.911);
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 25px;
+    color: white;
+}
+
+.eliminartareas:hover{
+    transform: scale(1.04);
+    transition-delay: .1s;
+    transition-duration: .2s;
+}
+
+.elim{
+    margin-top:20px;
+    margin-bottom: 50px;
+    margin-right: 160px;
+    width: 85%;
+}
+
+a{  
+    cursor: pointer;
+    text-decoration:none;
+}

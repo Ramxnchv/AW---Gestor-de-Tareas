@@ -15,7 +15,7 @@ class DAOTasks {
             callback(new Error("Error de conexión a la base de datos"));
         }
         else {
-        connection.query("SELECT task.id, task.text, task.done, tag.tag FROM user JOIN task ON user.email = task.user JOIN tag ON task.id = tag.taskId  WHERE user.email = ? " ,
+        connection.query("SELECT task.id, task.text, task.done, tag.tag FROM user JOIN task ON user.email = task.user LEFT JOIN tag ON tag.taskId = task.id WHERE user.email = ? " ,
         [email],
         function(err, rows) {
             connection.release(); // devolver al pool la conexión

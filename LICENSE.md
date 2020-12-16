@@ -1,2 +1,2 @@
 
-Copyright (C) 2020 Ramón
+Copyright (C) 2020 Ramxnchv y VicVelaz
