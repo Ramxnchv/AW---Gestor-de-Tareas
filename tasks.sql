@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-11-2020 a las 16:34:31
+-- Tiempo de generación: 17-12-2020 a las 12:40:35
 -- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.2.33
+-- Versión de PHP: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,7 +37,10 @@ CREATE TABLE `tag` (
 --
 
 INSERT INTO `tag` (`taskId`, `tag`) VALUES
-(1, 'C++');
+(13, 'AW'),
+(13, 'PRÁCTICA'),
+(26, 'PERSONAL'),
+(27, 'PERSONAL');
 
 -- --------------------------------------------------------
 
@@ -57,7 +60,10 @@ CREATE TABLE `task` (
 --
 
 INSERT INTO `task` (`id`, `user`, `text`, `done`) VALUES
-(1, 'ejemplo@ucm.es', 'Esto es un texto de ejemplo', 0);
+(13, 'usuario@ucm.es', 'Preparar Práctica AW', 0),
+(25, 'usuario@ucm.es', 'Mirar Fechas Congreso', 1),
+(26, 'usuario@ucm.es', 'Ir al supermercado', 0),
+(27, 'usuario@ucm.es', 'Mudanza', 0);
 
 -- --------------------------------------------------------
 
@@ -76,7 +82,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`email`, `password`, `img`) VALUES
-('ejemplo@ucm.es', '1234', NULL);
+('usuario@ucm.es', '1234', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -86,7 +92,7 @@ INSERT INTO `user` (`email`, `password`, `img`) VALUES
 -- Indices de la tabla `tag`
 --
 ALTER TABLE `tag`
-  ADD PRIMARY KEY (`taskId`);
+  ADD PRIMARY KEY (`taskId`,`tag`) USING BTREE;
 
 --
 -- Indices de la tabla `task`
@@ -109,7 +115,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `task`
 --
 ALTER TABLE `task`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Restricciones para tablas volcadas
@@ -119,13 +125,13 @@ ALTER TABLE `task`
 -- Filtros para la tabla `tag`
 --
 ALTER TABLE `tag`
-  ADD CONSTRAINT `taskId` FOREIGN KEY (`taskId`) REFERENCES `task` (`id`);
+  ADD CONSTRAINT `taskId` FOREIGN KEY (`taskId`) REFERENCES `task` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `task`
 --
 ALTER TABLE `task`
-  ADD CONSTRAINT `user` FOREIGN KEY (`user`) REFERENCES `user` (`email`);
+  ADD CONSTRAINT `user` FOREIGN KEY (`user`) REFERENCES `user` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
