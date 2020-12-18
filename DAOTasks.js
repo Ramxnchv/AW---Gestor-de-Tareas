@@ -24,7 +24,7 @@ class DAOTasks {
             }
             else {
                 if (rows.length === 0) {
-                    callback(null, false); //no está el usuario con el password proporcionado
+                    callback(null, []); //no está el usuario con el password proporcionado
                 }
                 else {
                     let task={};
