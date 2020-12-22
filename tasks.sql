@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-12-2020 a las 12:40:35
+-- Tiempo de generación: 23-12-2020 a las 00:06:29
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.10
 
@@ -24,6 +24,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `sessions`
+--
+
+CREATE TABLE `sessions` (
+  `session_id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `expires` int(11) UNSIGNED NOT NULL,
+  `data` mediumtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `tag`
 --
 
@@ -37,10 +49,10 @@ CREATE TABLE `tag` (
 --
 
 INSERT INTO `tag` (`taskId`, `tag`) VALUES
-(13, 'AW'),
-(13, 'PRÁCTICA'),
-(26, 'PERSONAL'),
-(27, 'PERSONAL');
+(31, 'AW'),
+(31, 'PRÁCTICA'),
+(33, 'PERSONAL'),
+(35, 'PERSONAL');
 
 -- --------------------------------------------------------
 
@@ -60,10 +72,10 @@ CREATE TABLE `task` (
 --
 
 INSERT INTO `task` (`id`, `user`, `text`, `done`) VALUES
-(13, 'usuario@ucm.es', 'Preparar Práctica AW', 0),
-(25, 'usuario@ucm.es', 'Mirar Fechas Congreso', 1),
-(26, 'usuario@ucm.es', 'Ir al supermercado', 0),
-(27, 'usuario@ucm.es', 'Mudanza', 0);
+(31, 'usuario@ucm.es', 'PREPARAR PRÁCTICA AW', 0),
+(32, 'usuario@ucm.es', 'MIRAR FECHAS CONGRESO', 1),
+(33, 'usuario@ucm.es', 'IR AL SUPERMERCADO', 0),
+(35, 'usuario@ucm.es', 'MUDANZA', 0);
 
 -- --------------------------------------------------------
 
@@ -82,11 +94,18 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`email`, `password`, `img`) VALUES
-('usuario@ucm.es', '1234', NULL);
+('sinfoto@ucm.es', '1234', NULL),
+('usuario@ucm.es', '1234', 'magdalena.jpg');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `sessions`
+--
+ALTER TABLE `sessions`
+  ADD PRIMARY KEY (`session_id`);
 
 --
 -- Indices de la tabla `tag`
@@ -115,7 +134,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `task`
 --
 ALTER TABLE `task`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- Restricciones para tablas volcadas

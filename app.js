@@ -102,6 +102,23 @@ app.get("/logout", isUserLogged, function (request, response) {
             
 });
 
+app.get("/imagenUsuario", isUserLogged, function (request, response) {
+    daoU.getUserImageName(request.session.currentUser, function(err,img){
+        if (err) {
+            console.log(err.message);
+        } 
+        else {
+            if(img === null){
+                response.sendFile(path.join(__dirname, "public", "img", "NoPerfil.png"));
+            }
+            else{
+                response.sendFile(path.join(__dirname, "profile_imgs", img));
+            }
+        }
+    });
+            
+});
+
 
 app.post("/addTask", isUserLogged, function(request, response) {
     daoT.insertTask(request.session.currentUser, utilidades.createTask(request.body.nombre_tarea) ,function(err){
