@@ -49,12 +49,22 @@ const middlewareSession = session({
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(middlewareSession);
 
-app.get("/tasks", function(request, response) {
-    daoT.getAllTasks("usuario@ucm.es",function(err,taskList){
+
+function isUserLogged(request, response, next){
+    if (request.session.currentUser === undefined) {
+        response.redirect("/login");
+    } else {
+        response.locals = { userEmail: request.session.currentUser };
+        next();
+    }
+}
+
+app.get("/tasks", isUserLogged, function(request, response) {
+    daoT.getAllTasks(request.session.currentUser,function(err,taskList){
         if (err) {
             console.log(err.message);
         } else {
-            response.render("tasks", { tasks: taskList });
+            response.render("tasks", { tasks: taskList});
         }
     });
 });
@@ -70,7 +80,7 @@ app.post("/login", function (request, response) {
         request.body.password, function (error, ok) {
             if (error) { // error de acceso a la base de datos
                 response.status(500);
-                response.render("login",{ errorMsg: "Error interno de acceso a la base de datos" });
+                response.render("login", { errorMsg: "Error interno de acceso a la base de datos" });
             }
             else if (ok) {
                 request.session.currentUser = request.body.correo;
@@ -84,7 +94,8 @@ app.post("/login", function (request, response) {
     );
 });
 
-app.get("/logout", function (request, response) {
+
+app.get("/logout", isUserLogged, function (request, response) {
 
     request.session.destroy();
     response.redirect("/login");
@@ -92,10 +103,8 @@ app.get("/logout", function (request, response) {
 });
 
 
-
-
-app.post("/addTask", function(request, response) {
-    daoT.insertTask("usuario@ucm.es", utilidades.createTask(request.body.nombre_tarea) ,function(err){
+app.post("/addTask", isUserLogged, function(request, response) {
+    daoT.insertTask(request.session.currentUser, utilidades.createTask(request.body.nombre_tarea) ,function(err){
         if (err) {
             console.log(err.message);
         } else {
@@ -104,7 +113,7 @@ app.post("/addTask", function(request, response) {
     });
 });
 
-app.get("/finish/:taskId", function(request, response) {
+app.get("/finish/:taskId", isUserLogged, function(request, response) {
     daoT.markTaskDone(request.params.taskId,function(err){
         if (err) {
             console.log(err.message);
@@ -114,8 +123,8 @@ app.get("/finish/:taskId", function(request, response) {
     });
 });
 
-app.get("/deleteCompleted", function(request, response) {
-    daoT.deleteCompleted("usuario@ucm.es",function(err){
+app.get("/deleteCompleted", isUserLogged, function(request, response) {
+    daoT.deleteCompleted(request.session.currentUser,function(err){
         if (err) {
             console.log(err.message);
         } else {
