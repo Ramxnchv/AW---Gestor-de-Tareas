@@ -1,12 +1,21 @@
 const config = require("./config");
 const DAOTasks = require("./DAOTasks");
+const DAOUsers = require("./DAOUsers");
 const utils = require("./utils");
 const path = require("path");
 const mysql = require("mysql");
 const express = require("express");
+const session = require("express-session");
+const mysqlSession = require("express-mysql-session");
+const MySQLStore = mysqlSession(session);
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const fs = require("fs");
+const sessionStore = new MySQLStore({
+    host: config.mysqlConfig.host,
+    user: config.mysqlConfig.user,
+    password: config.mysqlConfig.password,
+    database: config.mysqlConfig.database });
 
 // Crear un servidor Express.js
 const app = express();
@@ -16,6 +25,9 @@ const pool = mysql.createPool(config.mysqlConfig);
 
 // Crear una instancia de DAOTasks
 const daoT = new DAOTasks(pool);
+
+// Crear una instancia de DAOUsers
+const daoU = new DAOUsers(pool);
 
 const utilidades = new utils();
 
@@ -27,6 +39,15 @@ app.use(morgan("dev"));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+const middlewareSession = session({
+    saveUninitialized: false,
+    secret: "tasks",
+    resave: false,
+    store: sessionStore
+});
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(middlewareSession);
 
 app.get("/tasks", function(request, response) {
     daoT.getAllTasks("usuario@ucm.es",function(err,taskList){
@@ -38,7 +59,40 @@ app.get("/tasks", function(request, response) {
     });
 });
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.get("/login", function (request, response) {
+    
+    response.render("login", { errorMsg: null });
+            
+});
+
+app.post("/login", function (request, response) {
+    daoU.isUserCorrect(request.body.correo,
+        request.body.password, function (error, ok) {
+            if (error) { // error de acceso a la base de datos
+                response.status(500);
+                response.render("login",{ errorMsg: "Error interno de acceso a la base de datos" });
+            }
+            else if (ok) {
+                request.session.currentUser = request.body.correo;
+                response.redirect("/tasks");
+            } 
+            else {
+                response.status(200);
+                response.render("login", { errorMsg: "Dirección de correo y/o contraseña no válidos" });
+            }
+        }
+    );
+});
+
+app.get("/logout", function (request, response) {
+
+    request.session.destroy();
+    response.redirect("/login");
+            
+});
+
+
+
 
 app.post("/addTask", function(request, response) {
     daoT.insertTask("usuario@ucm.es", utilidades.createTask(request.body.nombre_tarea) ,function(err){

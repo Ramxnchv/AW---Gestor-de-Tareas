@@ -1,0 +1,160 @@
+*{
+    margin:0;
+    padding:0;
+    font-family: 'Oxygen', sans-serif;
+}
+
+body{
+    margin-top: 180px;
+    background-image: url(../img/backgroundconcolor.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: auto;
+    min-width: 800px;
+}
+
+.total{
+    display: flex;
+    flex-direction: column;
+}
+
+.cab{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+.cabecera{
+    background-color: rgba(80, 60, 33, 0.918);
+    display: flex;
+    align-items: center;
+}
+
+.contenido{
+    display: flex;
+    flex-direction: column;
+    width: 890px;
+    min-width: 800px;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.notes{
+    color:white;
+    margin-left: 30px;
+    font-size: 90px;
+    font-family: 'Abril Fatface', cursive;
+    text-shadow: 7px 7px 6px rgb(63, 43, 19);
+}
+
+#libreta{
+    margin-left: 40px;
+    width:100px;
+    height: auto;
+}
+
+.userinfo{
+    margin-left: auto;
+    margin-right: 40px;
+    display: flex;
+}
+
+#userimg{
+    width: 100px;
+    height: 100px;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.useremail{
+    font-size: 20px;
+    color:white;
+}
+
+.desc{
+    margin-top: 10px;
+}
+.desconectar{
+    color:rgb(211, 201, 201);
+}
+
+.desconectar:hover{
+    color:rgba(233, 99, 10);
+}
+
+.cuerpo{
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.error{
+    color: rgb(173, 6, 6);
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.login{
+    background-color: rgb(223, 207, 187,0.7);
+    padding: 10px;
+}
+
+.correo{
+    font-weight: bold;
+}
+
+.texto{
+    height: 30px;
+    width: 60%;
+    margin-left: 50px;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.pass{
+    font-weight: bold;
+}
+
+.textopass{
+    font: large Verdana,sans-serif;
+    letter-spacing: 1px;
+    height: 30px;
+    width: 60%;
+    margin-left: 20px;
+}
+
+
+.botones{
+    display: flex;
+    justify-content: space-evenly;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.boton{
+    background-color: rgba(80, 60, 33, 0.904);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 17px;
+}
+
+.boton:hover{
+    cursor: pointer;
+}
