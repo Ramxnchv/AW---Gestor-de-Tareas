@@ -126,6 +126,18 @@ body{
     margin:10px;
 }
 
+.taream{
+    display: flex;
+    justify-content: flex-start;
+    padding: 5px;
+    background-color:  rgb(223, 207, 187);
+    width: 98%;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px #070707;
+    flex-wrap: nowrap;
+    margin:10px;
+}
+
 .caracter{
     display: none;
 }
@@ -133,8 +145,18 @@ body{
 .titulotarea{
     font-family: 'Oxygen', sans-serif;
     font-weight: bold;
+    color: black;
     padding: 5px;
     margin-right: auto;
+    margin-left: 5px;
+}
+
+.titulotaream{
+    font-family: 'Oxygen', sans-serif;
+    font-weight: bold;
+    color: black;
+    padding: 5px;
+    margin-right: 10px;
     margin-left: 5px;
 }
 
@@ -151,6 +173,22 @@ body{
     align-self: center;
     flex-basis:10px;
     flex-shrink: 2;
+}
+
+.tagm{
+    font-family: 'Oxygen', sans-serif;
+    border-radius: 5px;
+    background-color:rgba(80, 60, 33, 0.904);
+    color: white;
+    margin-left: 10px;
+    /* padding: 5px; */
+    font-size: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    align-self: center;
+    flex-basis:10px;
+    flex-shrink: 2;
+    cursor: pointer;
 }
 
 .a_botonfinalizada{

@@ -3,6 +3,8 @@
 <html lang="es">
 
 <head>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="/javascripts/tasks.js"></script>
     <title>Gestor de tareas</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/tasksScreen.css" media="screen">
@@ -10,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
     <link rel="icon" type="img/png" href="../public/img/libretaBlanca.png">
-
 </head>
 
 <body>
@@ -74,6 +75,9 @@
                 <div class="nuevatarea">
                     <form action="/addTask" method="POST" class="form_tarea">
                         Nueva Tarea: <input id="text_nueva_tarea" type="text" name="nombre_tarea" required>
+                        <input id="text_nueva_etiqueta" type="text" name="nombre_etiqueta"><button id="boton_nueva_etiqueta" type="button">Añadir TAG</button>
+                        <div id="mostrartask" class="taream"></div>
+                        <input id="inputarea" type="text" name="texto_tarea" style="display: none;" >
                         <button id="boton_nueva_tarea" type="submit">Añadir</button>
                     </form>
                 </div>

@@ -121,7 +121,7 @@ app.get("/imagenUsuario", isUserLogged, function (request, response) {
 
 
 app.post("/addTask", isUserLogged, function(request, response) {
-    daoT.insertTask(request.session.currentUser, utilidades.createTask(request.body.nombre_tarea) ,function(err){
+    daoT.insertTask(request.session.currentUser, utilidades.createTask(request.body.texto_tarea) ,function(err){
         if (err) {
             console.log(err.message);
         } else {
