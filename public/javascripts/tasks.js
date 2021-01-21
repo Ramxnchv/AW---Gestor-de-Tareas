@@ -34,14 +34,14 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    $(".form_tarea input[type=submit]").on("click", function (event) {
+    $("#form_tarea button[type=submit]").on("click", function (event) {
         if($("#text_nueva_tarea").val() === ""){
             alert("El nombre de la tarea no puede ser vacío");
             event.preventDefault();
         }
         else{
             console.log("hola");
-            let input = "";
+            let input = $("#text_nueva_tarea").val() + " ";
             $(".tagm").each(function(i,el){
                 input += `@${$(el).text()} `;   
             });
