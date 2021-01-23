@@ -12,7 +12,7 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("#boton_nueva_etiqueta").on("click", function (event) {
         let rep = false;
-        if($("#text_nueva_etiqueta").val() !== ""){
+        if($("#text_nueva_etiqueta").val().trim() !== "" &&  $("#mostrartask").text().trim() !== ""){
             let nuevoTag = $(`<div>${$("#text_nueva_etiqueta").val()}</div>`).addClass("tagm");
             $(".tagm").each(function(i,el){
                 if($(el).text() === nuevoTag.text()){
@@ -40,7 +40,6 @@ $(document).ready(function () {
             event.preventDefault();
         }
         else{
-            console.log("hola");
             let input = $("#text_nueva_tarea").val() + " ";
             $(".tagm").each(function(i,el){
                 input += `@${$(el).text()} `;   
