@@ -1,4 +1,4 @@
-"use strict"
+"use strict";/*jshint strict:false */
 
 $(document).ready(function () {
     $("#text_nueva_tarea").on("change", function (event) {
